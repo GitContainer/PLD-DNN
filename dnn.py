@@ -30,18 +30,12 @@ class NeuralNetwork(nn.Module):
         super().__init__()
         self.fc1 = nn.Linear(input_size, 16)
         self.fc2 = nn.Linear(16, 8)
-        self.fc3 = nn.Linear(8, 8)
-        self.fc4 = nn.Linear(8, 16)
-        self.fc5 = nn.Linear(16, 8)
-        self.fc6 = nn.Linear(8, num_classes)
+        self.fc3 = nn.Linear(8, num_classes)
 
     def forward(self, x):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-        x = F.relu(self.fc3(x))
-        x = F.relu(self.fc4(x))
-        x = F.relu(self.fc5(x))
-        y_hat = self.fc6(x)
+        y_hat = self.fc3(x)
         return y_hat
 
 
